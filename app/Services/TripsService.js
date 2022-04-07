@@ -1,5 +1,6 @@
 import { ProxyState } from "../AppState.js";
 import { reservationsService } from "./ReservationsService.js";
+import { Trip } from "../Models/Trip.js";
 
 class TripsService
 {
@@ -11,7 +12,7 @@ class TripsService
     createTrip(tripData)
     {
         const newTrip = new Trip(tripData);
-        ProxyState.Trips = [...ProxyState.Trips, newTrip];
+        ProxyState.trips = [...ProxyState.trips, newTrip];
         ProxyState.currentTrip = newTrip.id;
     }
 
@@ -22,7 +23,7 @@ class TripsService
         removedReservations.forEach(r => reservationsService.deleteReservation(r.id));
 
         // then delete the trip
-        ProxyState.Trips = ProxyState.Trips.filter(t => t.id !== id);
+        ProxyState.trips = ProxyState.trips.filter(t => t.id !== id);
         ProxyState.currentTrip = null;
     }
 }
