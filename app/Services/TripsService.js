@@ -14,6 +14,7 @@ class TripsService
         const newTrip = new Trip(tripData);
         ProxyState.trips = [...ProxyState.trips, newTrip];
         ProxyState.currentTrip = newTrip.id;
+        console.log(ProxyState.trips);
     }
 
     deleteTrip(id)
