@@ -8,7 +8,7 @@ function _drawTrips() {
   ProxyState.trips.forEach(t => template += t.Template)
 
   //add the addTripButton
-  // REVIEW add trip add modal id
+  // REVIEW touch up this button
   template +=
   `
   <div class="col">
