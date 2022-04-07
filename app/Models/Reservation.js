@@ -57,7 +57,7 @@ export class Reservation
             <div class="col">${this.confimationNumber}</div>
             <div class="col">${this.address}</div>
             <div class="col">${this.startDate}</div>
-            <div class="col"><button class="btn btn-dark darken-20"><i class="mdi mdi-note"></i></button></div>
+            <div class="col"><button class="btn btn-transparent text-dark"><i class="mdi mdi-note-outline"></i></button></div>
             <div class="col">$${this.cost}</div>
         </div>
         `;
