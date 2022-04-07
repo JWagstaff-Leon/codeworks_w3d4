@@ -18,13 +18,17 @@ export class TripsController {
       /**@type {HTMLFormElement} */
       const form = window.event.target
       const tripData = {
-        // to collect data
+        name: form.name.value
+        description: form.description.value
       }
 
     } catch (error) {
       console.error('ADD TRIP ERROR', error)
     }
     tripsService.createTrip(tripData)
+  }
+  deleteTrip(id) {
+    tripsService.deleteTrip(id)
   }
   
 }
