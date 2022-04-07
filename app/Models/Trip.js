@@ -21,9 +21,12 @@ export class Trip{
     get Template()
     {
         let template = "";
-        const reservations = ProxyState.reservations.filter(r => r.tripId === this.id);
 
-        reservations.forEach(r => template += r.Template);
+        // TODO make on a template
+        // NOTE will be this.name in a div with a border
+        // and will have a title attribute of this.description
+        // onclick will become the current trip (this.id)
+        // will be colored based on if it's the ProxyState.currentTrip
 
         return template;
     }
