@@ -9,6 +9,8 @@ class AppState extends EventEmitter {
 
   /**@type {import('./Models/Reservation').Reservation[]} */
   reservations = []
+
+  currentTrip = null;
 }
 
 export const ProxyState = new Proxy(new AppState(), {
