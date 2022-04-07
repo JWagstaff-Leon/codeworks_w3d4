@@ -72,16 +72,17 @@ export class TripsController {
     window.event.preventDefault()
     try {
       /**@type {HTMLFormElement} */
+      // @ts-ignore
       const form = window.event.target
       const tripData = {
+        // @ts-ignore
         name: form.name.value,
         description: form.description.value
       }
-
+      tripsService.createTrip(tripData)
     } catch (error) {
       console.error('ADD TRIP ERROR', error)
     }
-    tripsService.createTrip(tripData)
   }
   deleteTrip(id) {
     try
@@ -100,13 +101,16 @@ export class TripsController {
     try
     {
         /**@type {HTMLFormElement} */
+        // @ts-ignore
         const form = window.event.target;
 
         const reservationData =
         {
+            // @ts-ignore
             id: form.id.value,
             type: form.type.value,
             tripId: form.tripId.value,
+            // @ts-ignore
             name: form.name.value,
             confimationNumber: form.confirmationNumber.value,
             address: form.address.value,
