@@ -31,6 +31,19 @@ export class TripsController {
     _drawReservations()
   }
 
+  selectTrip(id)
+  {
+    try
+    {
+
+    tripsService.selectTrip(id);
+    }
+    catch(error)
+    {
+        console.error('SELECT TRIP ERROR', error.message);
+    }
+  }
+
   createTrip() {
     window.event.preventDefault()
     try {
