@@ -12,7 +12,7 @@ function _drawTrips() {
   template +=
   `
   <div class="col">
-    <button class="btn btn-primary text-center d-flex align-items-center" title="Add New Trip" data-bs-toggle="modal" data-bs-target="#modal"><i class="mdi mdi-plus-thick></i></button>
+    <button class="btn btn-primary text-center d-flex align-items-center" title="Add New Trip" data-bs-toggle="modal" data-bs-target="#modal"><i class="mdi mdi-plus-thick"></i></button>
   </div>
   `;
 
@@ -22,7 +22,21 @@ function _drawTrips() {
 // the list of reservations within a trip tab
 function _drawReservations() {
   let template = ''
-  ProxyState.reservations.forEach(r => template += r.Template)
+  template += 
+  `
+  <div class="row bg-secondary text-black py-2">
+        <div class="col text-center"><h5>Type</h5></div>
+        <div class="col text-center"><h5>Name</h5></div>
+        <div class="col text-center"><h5>Confirmation Number</h5></div>
+        <div class="col text-center"><h5>Address</h5></div>
+        <div class="col text-center"><h5>Date</h5></div>
+        <div class="col text-center"><h5>Notes</h5></div>
+        <div class="col text-center"><h5>Cost</h5></div>
+    </div>
+  `;
+    const tripReservations = ProxyState.reservations.filter(r => r.tripId === ProxyState.currentTrip);
+
+  tripReservations.forEach(r => template += r.Template)
   document.getElementById('reservations').innerHTML = template
 }
 
