@@ -7,6 +7,7 @@ class TripsService
     {
         const newTrip = new Trip(tripData);
         ProxyState.Trips = [...ProxyState.Trips, newTrip];
+        ProxyState.currentTrip = newTrip.id;
     }
 
     deleteTrip(id)
@@ -17,6 +18,7 @@ class TripsService
 
         // then delete the trip
         ProxyState.Trips = ProxyState.Trips.filter(t => t.id !== id);
+        ProxyState.currentTrip = null;
     }
 }
 
