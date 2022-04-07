@@ -3,7 +3,7 @@ import { Reservation } from "../Models/Reservation.js";
 
 class ReservationsService
 {
-    addReservation(reservationData)
+    createReservation(reservationData)
     {
         const newReservation = new Reservation(reservationData);
         ProxyState.reservations = [...ProxyState.reservations, newReservation];

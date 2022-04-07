@@ -3,7 +3,7 @@ import { reservationsService } from "./ReservationsService.js";
 
 class TripsService
 {
-    addTrip(tripData)
+    createTrip(tripData)
     {
         const newTrip = new Trip(tripData);
         ProxyState.Trips = [...ProxyState.Trips, newTrip];
