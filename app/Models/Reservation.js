@@ -48,8 +48,21 @@ export class Reservation
     {
         let template = "";
         //TODO make a template
+
+        template +=
+        `
+        <div class="row bg-secondary text-black">
+            <div class="col"><i class="mdi mdi-${"RESERVATION TYPE GOES HERE"}"></i></div>
+            <div class="col">${this.name}</div>
+            <div class="col">${this.confimationNumber}</div>
+            <div class="col">${this.address}</div>
+            <div class="col">${this.startDate}</div>
+            <div class="col"><button class="btn btn-dark darken-20"><i class="mdi mdi-note"></i></button></div>
+            <div class="col">$${this.cost}</div>
+        </div>
+        `;
         // NOTE will be a single row with:
-        // this.type turned into an ico through a switch
+        // this.type turned into an icom through a switch
         // this.name
         // this.confirmationNumber
         // this.address
