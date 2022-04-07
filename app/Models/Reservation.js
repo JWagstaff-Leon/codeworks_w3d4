@@ -51,7 +51,7 @@ export class Reservation
 
         template +=
         `
-        <div class="row bg-secondary text-black">
+        <div class="row bg-secondary text-black py-1 text-center">
             <div class="col"><i class="mdi mdi-${"RESERVATION TYPE GOES HERE"}"></i></div>
             <div class="col">${this.name}</div>
             <div class="col">${this.confimationNumber}</div>
