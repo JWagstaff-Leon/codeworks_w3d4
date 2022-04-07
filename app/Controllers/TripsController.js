@@ -6,6 +6,16 @@ import { reservationsService } from "../Services/ReservationsService.js";
 function _drawTrips() {
   let template = ''
   ProxyState.trips.forEach(t => template += t.Template)
+
+  //add the addTripButton
+  // REVIEW add trip add modal id
+  template +=
+  `
+  <div class="col">
+    <button class="btn btn-primary text-center d-flex align-items-center" title="Add New Trip" data-bs-toggle="modal" data-bs-target=""><i class="mdi mdi-plus-thick></i></button>
+  </div>
+  `;
+
   document.getElementById('trips').innerHTML = template
 }
 
