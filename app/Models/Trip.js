@@ -22,8 +22,8 @@ export class Trip{
     {
         let template = "";
         template += `
-        <div class="col-2 ${ProxyState.currentTrip == this.id ? 'bg-light text-dark' : 'bg-transparent text-light'}" title="${this.description}" onclick="app.tripsController.selectTrip('${this.id}')">
-            <div class="border border-light">
+        <div class="col ${ProxyState.currentTrip == this.id ? 'bg-secondary text-dark' : 'bg-transparent text-light'}" title="${this.description}" onclick="app.tripsController.selectTrip('${this.id}')">
+            <div class="border border-secondary">
                 <h3>${this.name}</h3>
             </div>
         </div>`
