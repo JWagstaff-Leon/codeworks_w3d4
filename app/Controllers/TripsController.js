@@ -11,7 +11,7 @@ function _drawTrips() {
   // REVIEW touch up this button
   template +=
   `
-  <div class="col">
+  <div class="col align-self-center">
     <button class="btn btn-primary text-center d-flex align-items-center" title="Add New Trip" data-bs-toggle="modal" data-bs-target="#modal"><i class="mdi mdi-plus-thick"></i></button>
   </div>
   `;
