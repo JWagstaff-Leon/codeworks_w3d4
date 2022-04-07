@@ -21,7 +21,12 @@ export class Trip{
     get Template()
     {
         let template = "";
-
+        template += `
+        <div class="col-2 ${ProxyState.currentTrip == this.id ? 'bg-light text-dark' : 'bg-transparent text-light'}" title="${this.description}" onclick="app.tripsController.selectTrip('${this.id}')">
+            <div class="border border-light">
+                <h3>${this.name}</h3>
+            </div>
+        </div>`
         // TODO make on a template
         // NOTE will be this.name in a div with a border
         // and will have a title attribute of this.description
