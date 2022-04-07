@@ -48,6 +48,14 @@ export class Reservation
     {
         let template = "";
         //TODO make a template
+        // NOTE will be a single row with:
+        // this.type turned into an ico through a switch
+        // this.name
+        // this.confirmationNumber
+        // this.address
+        // this.date
+        // a button to open a modal of this.notes
+        // this.cost
 
         return template;
     }
