@@ -25,8 +25,8 @@ export class TripsController {
     ProxyState.on('reservations', _drawReservations)
 
     //if we change the current trip, redraw the trips and reservations
-    ProxyState.on('currentTrips', _drawTrips)
-    ProxyState.on('currentTrips', _drawReservations)
+    ProxyState.on('currentTrip', _drawTrips)
+    ProxyState.on('currentTrip', _drawReservations)
     _drawTrips()
     _drawReservations()
   }
