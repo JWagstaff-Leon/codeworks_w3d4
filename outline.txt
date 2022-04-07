@@ -1,0 +1,59 @@
+Controllers
+	TripsController
+		addTrip
+		addReservation
+		_drawReservations -> change on trip change or reservation add or trip add?
+		_drawTrips -> change on trip change or trip add
+Services
+	TripsService
+		addTrip
+	ReservationsService
+		addReservation
+AppState
+	trips - array
+	reservations - array
+	currentTrip - string -> id of the trip
+Models
+	Trip
+		id - string
+		name - string
+		description - string
+	Reservation
+		id - string
+		type - string -> turn into icon name
+		tripId - string
+		name - string
+		confirmationNumber - string
+		Address - string
+		startDate - string
+		notes - string
+		cost - number
+		get Cost
+			return this.cost
+		get Template
+			type -> name -> confirmationNumber -> address -> date -> notesButton -> cost
+HTML
+	Header
+		nav bar
+	Main
+		tabs
+			trip1
+			trip2
+			.
+			.
+			.
+			tripN
+			addTripButton
+		trip view
+			reservation1
+			reservation2
+			.
+			.
+			.
+			reservationN
+			addReservationForm
+			addReservationButton
+			total cost
+	Modals
+		addTrip modal
+		addReservation modal
