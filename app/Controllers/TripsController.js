@@ -12,7 +12,7 @@ function _drawTrips() {
   template +=
   `
   <div class="col">
-    <button class="btn btn-primary text-center d-flex align-items-center" title="Add New Trip" data-bs-toggle="modal" data-bs-target=""><i class="mdi mdi-plus-thick></i></button>
+    <button class="btn btn-primary text-center d-flex align-items-center" title="Add New Trip" data-bs-toggle="modal" data-bs-target="modal"><i class="mdi mdi-plus-thick></i></button>
   </div>
   `;
 
