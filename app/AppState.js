@@ -4,15 +4,15 @@ import { Trip } from "./Models/Trip.js"
 import { Reservation } from "./Models/Reservation.js"
 
 // @ts-ignore
-const trip1 = new Trip({name: "trip1", description: "this is a trip"});
+const trip1 = new Trip({name: "trip1", description: "this is a trip", id: "hi"});
 // @ts-ignore
-const trip2 = new Trip({name: "trip2", description: "this is a trip"});
+const trip2 = new Trip({name: "trip2", description: "this is a trip", id: "hi"});
 // @ts-ignore
-const trip3 = new Trip({name: "trip3", description: "this is a trip"});
+const trip3 = new Trip({name: "trip3", description: "this is a trip", id: "hi"});
 // @ts-ignore
-const trip4 = new Trip({name: "trip4", description: "this is a trip"});
+const trip4 = new Trip({name: "trip4", description: "this is a trip", id: "hi"});
 // @ts-ignore
-const trip5 = new Trip({name: "trip5", description: "this is a trip"});
+const trip5 = new Trip({name: "trip5", description: "this is a trip", id: "hi"});
 
 // @ts-ignore
 const res1 = new Reservation({type: 'Business', name: 'Frank', confimationNumber: 'AO24lON', address: '134 Any Way', startDate: '03/04/23', notes: 'notey', cost: 600, tripId: 'hi'})
