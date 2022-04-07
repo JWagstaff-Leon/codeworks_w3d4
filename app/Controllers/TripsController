@@ -1,0 +1,30 @@
+import { ProxyState } from "../AppState.js";
+
+function _drawTrips() {
+  let template = ''
+  ProxyState.reservations.forEach(r => template += r.Template)
+  document.getElementById('trips').innerHTML = template
+}
+
+export class TripsController {
+  constructor() {
+    ProxyState.on('reservations', _drawTrips)
+    _drawTrips()
+  }
+
+  createTrip() {
+    window.event.preventDefault()
+    try {
+      /**@type {HTMLFormElement} */
+      const form = window.event.target
+      const tripData = {
+        // to collect data
+      }
+
+    } catch (error) {
+      console.error('ADD TRIP ERROR', error)
+    }
+    tripsService.createTrip(tripData)
+  }
+  
+}
