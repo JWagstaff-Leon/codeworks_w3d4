@@ -3,6 +3,11 @@ import { reservationsService } from "./ReservationsService.js";
 
 class TripsService
 {
+    selectTrip(id)
+    {
+        ProxyState.currentTrip = id;
+    }
+
     createTrip(tripData)
     {
         const newTrip = new Trip(tripData);
