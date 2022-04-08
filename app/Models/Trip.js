@@ -18,6 +18,7 @@ export class Trip{
         this.description = description;
     }
 
+    // REVIEW add delete button?
     get Template()
     {
         let template = "";

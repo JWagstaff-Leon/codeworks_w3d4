@@ -44,11 +44,11 @@ export class Reservation
         this.cost = cost;
     }
 
+    // REVIEW add delete button?
     get Template()
     {
         let template = "";
 
-        // TODO add notes modal and put id here
         template +=
         `
         <div class="row bg-secondary text-black py-1 text-center">

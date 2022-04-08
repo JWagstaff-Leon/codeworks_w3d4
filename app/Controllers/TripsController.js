@@ -8,7 +8,6 @@ function _drawTrips() {
   ProxyState.trips.forEach(t => template += t.Template)
 
   //add the addTripButton
-  // REVIEW touch up this button
   template +=
   `
   <li class="col align-self-center ms-2">
