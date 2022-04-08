@@ -24,50 +24,58 @@
       </a>
     </nav>
   </header>
-  <main class="container-fluids bg-dark">
-      <div class="row" id="trips">
+  <main class="container-fluid bg-dark">
+      <ul class="nav nav-tabs mt-2" id="trips">
         <!-- Trips go here -->
-      </div>
-      <div class="row">
+      </ul>
+      <div class="row bg-light">
         <div class="col-12" id="reservations">
           <!-- Reservations go here -->
         </div>
       </div>
-      <div class="row" id="form">
+      <div class="row bg-light" id="form">
         <div class="col-12 mt-2">
-          <form class="d-flex justify-content-between" onsubmit="createReservation()">
+          <form class="d-flex justify-content-between" onsubmit="app.tripsController.createReservation()">
             <div class="form-group ms-2">
-              <label class="visually-hidden" for="name"></label>
-              <select class="form-control border border-dark" id="name"  placeholder="Name...">
-                <option><i class="mdi mdi-airplane text-dark" title="plane"></i></option>
-                <option><i class="mdi mdi-office-building text-dark"title="hotel"></i></option>
-                <option><i class="mdi mdi-ferris-wheel text-dark" title="Ferris Wheel"></i></option>
-                <option><i class="mdi mdi-car text-dark" title="car"></i></option>
+              <label class="visually-hidden" for="type">Reservation Type</label>
+              <select class="form-control border border-dark" id="type" required>
+                <option value="airplane"><i class="mdi mdi-airplane text-dark" title="plane">Flight</i></option>
+                <option value="office-building"><i class="mdi mdi-office-building text-dark"title="hotel">Hotel</i></option>
+                <option value="ferris-wheel"><i class="mdi mdi-ferris-wheel text-dark" title="Ferris Wheel">Entertainment</i></option>
+                <option value="car"><i class="mdi mdi-car text-dark" title="car">Rental Car</i></option>
               </select>
             </div>
             <div class="form-group ms-2">
-              <label class="visually-hidden" for="confirmation"></label>
-              <input type="text" class="form-control border border-dark" id="confirmation" placeholder="Confirmation...">
+              <label class="visually-hidden" for="name">Name</label>
+              <input type="text" class="form-control border border-dark" id="name" placeholder="Name..." required>
             </div>
             <div class="form-group ms-2">
-              <label class="visually-hidden" for="address"></label>
-              <input type="text" class="form-control border border-dark" id="address" placeholder="address...">
+              <label class="visually-hidden" for="confirmationNumber">Confirmation Number</label>
+              <input type="text" class="form-control border border-dark" id="confirmationNumber" placeholder="Confirmation Number..." required>
+            </div>
+            <div class="form-group ms-2">
+              <label class="visually-hidden" for="address">Address</label>
+              <input type="text" class="form-control border border-dark" id="address" placeholder="Address..." required>
             </div>
             <div class="form-group ms-2">
               <label class="visually-hidden" for="startDate"></label>
-              <input type="text" class="form-control border border-dark" id="startDate" placeholder="Start Date...">
+              <input type="text" class="form-control border border-dark" id="startDate" placeholder="Start Date..." required>
+            </div>
+            <div class="form-group ms-2">
+              <label class="visually-hidden" for="cost">Cost</label>
+              <input type="number" class="form-control border border-dark" id="cost" placeholder="Cost..." min="0" required>
             </div>
             <div class="me-2">
-              <h6>
-              Total: $0.00
-              </h6>
-              <button>Add</button>
+                <button>Add</button>
             </div>
-          </form>
+        </form>
         </div>
-      </div>
+        <div class="col text-end my-2">
+            <h4>Total: $<span id="total-cost">0.00</span></h4>
+        </div>
     </div>
-  </main>
+</div>
+</main>
 
   <div class="modal" id="modal" tabindex="-1">
     <div class="modal-dialog">
@@ -76,23 +84,23 @@
           <h5 class="modal-title">Add Trip</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <form onsubmit="createTrip()">
+        <form onsubmit="app.tripsController.createTrip()">
+            <div class="modal-body">
 
-            <div class="form-group ms-2">
-              <label class="visually-hidden" for="addName"></label>
-              <input type="text" class="form-control border border-dark" id="addName" placeholder="Name...">
+                <div class="form-group ms-2">
+                <label class="visually-hidden" for="addName"></label>
+                <input type="text" class="form-control border border-dark" id="name" placeholder="Name...">
+                </div>
+                <div class="form-group ms-2">
+                <label class="visually-hidden" for="addDescription"></label>
+                <input type="text" class="form-control border border-dark" id="description" placeholder="Description...">
+                </div>
             </div>
-            <div class="form-group ms-2">
-              <label class="visually-hidden" for="addDescription"></label>
-              <input type="text" class="form-control border border-dark" id="addDescription" placeholder="Description...">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Add Trip</button>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Add Trip</button>
-          </form>
-        </div>
+        </form>
       </div>
     </div>
   </div>

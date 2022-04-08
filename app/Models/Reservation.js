@@ -2,7 +2,7 @@ import { generateId } from "../Utils/generateId.js";
 
 export class Reservation
 {
-    constructor( { id, type, tripId, name, confimationNumber, address, startDate, notes, cost } )
+    constructor( { id, type, tripId, name, confirmationNumber, address, startDate, notes, cost } )
     {
         if(!type)
         {
@@ -16,7 +16,7 @@ export class Reservation
         {
             throw new Error("New reservations need a name");
         }
-        if(!confimationNumber)
+        if(!confirmationNumber)
         {
             throw new Error("New reservations need a confirmation number");
         }
@@ -37,7 +37,7 @@ export class Reservation
         this.type = type;
         this.tripId = tripId;
         this.name = name;
-        this.confimationNumber = confimationNumber;
+        this.confirmationNumber = confirmationNumber;
         this.address = address;
         this.startDate = startDate;
         this.notes = notes || "";
@@ -47,28 +47,20 @@ export class Reservation
     get Template()
     {
         let template = "";
-        //TODO make a template
 
+        // TODO add notes modal and put id here
         template +=
         `
         <div class="row bg-secondary text-black py-1 text-center">
-            <div class="col"><i class="mdi mdi-${"RESERVATION TYPE GOES HERE"}"></i></div>
+            <div class="col"><i class="mdi mdi-${this.type} text-dark"></i></div>
             <div class="col">${this.name}</div>
-            <div class="col">${this.confimationNumber}</div>
+            <div class="col">${this.confirmationNumber}</div>
             <div class="col">${this.address}</div>
             <div class="col">${this.startDate}</div>
-            <div class="col"><button class="btn btn-transparent text-dark"><i class="mdi mdi-note-outline"></i></button></div>
+            <div class="col"><button class="btn btn-transparent text-dark" data-bs-toggle="modal" data-bs-target=""><i class="mdi mdi-note-outline"></i></button></div>
             <div class="col">$${this.cost}</div>
         </div>
         `;
-        // NOTE will be a single row with:
-        // this.type turned into an icom through a switch
-        // this.name
-        // this.confirmationNumber
-        // this.address
-        // this.date
-        // a button to open a modal of this.notes
-        // this.cost
 
         return template;
     }

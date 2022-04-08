@@ -11,9 +11,9 @@ function _drawTrips() {
   // REVIEW touch up this button
   template +=
   `
-  <div class="col align-self-center">
+  <li class="col align-self-center ms-2">
     <button class="btn btn-primary text-center d-flex align-items-center" title="Add New Trip" data-bs-toggle="modal" data-bs-target="#modal"><i class="mdi mdi-plus-thick"></i></button>
-  </div>
+  </li>
   `;
 
   document.getElementById('trips').innerHTML = template
@@ -34,10 +34,16 @@ function _drawReservations() {
         <div class="col text-center"><h5>Cost</h5></div>
     </div>
   `;
-    const tripReservations = ProxyState.reservations.filter(r => r.tripId === ProxyState.currentTrip);
+    const tripReservations = ProxyState.reservations.filter(r => r.tripId === ProxyState.currentTripId);
 
-  tripReservations.forEach(r => template += r.Template)
-  document.getElementById('reservations').innerHTML = template
+  tripReservations.forEach(r => template += r.Template);
+  document.getElementById('reservations').innerHTML = template;
+
+    const currentTrip = ProxyState.trips.find(t => t.id === ProxyState.currentTripId);
+    if(currentTrip)
+    {
+        document.getElementById("total-cost").innerText = currentTrip.Cost;
+    }
 }
 
 export class TripsController {
@@ -49,8 +55,8 @@ export class TripsController {
     ProxyState.on('reservations', _drawReservations)
 
     //if we change the current trip, redraw the trips and reservations
-    ProxyState.on('currentTrip', _drawTrips)
-    ProxyState.on('currentTrip', _drawReservations)
+    ProxyState.on('currentTripId', _drawTrips)
+    ProxyState.on('currentTripId', _drawReservations)
     _drawTrips()
     _drawReservations()
   }
@@ -84,6 +90,7 @@ export class TripsController {
       console.error('ADD TRIP ERROR', error)
     }
   }
+
   deleteTrip(id) {
     try
     {
@@ -107,16 +114,14 @@ export class TripsController {
         const reservationData =
         {
             // @ts-ignore
-            id: form.id.value,
             type: form.type.value,
-            tripId: form.tripId.value,
+            tripId: ProxyState.currentTripId,
             // @ts-ignore
             name: form.name.value,
-            confimationNumber: form.confirmationNumber.value,
+            confirmationNumber: form.confirmationNumber.value,
             address: form.address.value,
             startDate: form.startDate.value,
-            notes: form.notes.value,
-            cost: form.cost.value
+            cost: +form.cost.value
         };
 
         reservationsService.createReservation(reservationData);

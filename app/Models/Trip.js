@@ -22,16 +22,11 @@ export class Trip{
     {
         let template = "";
         template += `
-        <div class="col ${ProxyState.currentTrip == this.id ? 'bg-secondary text-dark' : 'bg-transparent text-light'}" title="${this.description}" onclick="app.tripsController.selectTrip('${this.id}')">
-            <div class="border border-secondary">
+        <li class="nav-item ${ProxyState.currentTripId == this.id ? 'bg-secondary text-dark' : 'bg-transparent text-light'}" title="${this.description}" onclick="app.tripsController.selectTrip('${this.id}')">
+            <div class="border border-secondary px-2">
                 <h3>${this.name}</h3>
             </div>
-        </div>`
-        // TODO make on a template
-        // NOTE will be this.name in a div with a border
-        // and will have a title attribute of this.description
-        // onclick will become the current trip (this.id)
-        // will be colored based on if it's the ProxyState.currentTrip
+        </li>`;
 
         return template;
     }
