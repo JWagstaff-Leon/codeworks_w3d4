@@ -85,7 +85,9 @@ export class TripsController {
         name: form.name.value,
         description: form.description.value
       }
-      tripsService.createTrip(tripData)
+      tripsService.createTrip(tripData);
+      form.reset();
+      bootstrap.Modal.getOrCreateInstance(document.getElementById("modal")).hide();
     } catch (error) {
       console.error('ADD TRIP ERROR', error)
     }
@@ -125,6 +127,7 @@ export class TripsController {
         };
 
         reservationsService.createReservation(reservationData);
+        form.reset();
     }
     catch(error)
     {
@@ -141,6 +144,24 @@ export class TripsController {
     catch(error)
     {
         console.error('DELETE RESERVATION ERROR', error);
+    }
+  }
+
+  drawNotes(id)
+  {
+      document.getElementById("notes-form").setAttribute("onsubmit", `app.tripsController.updateNotes('${id}')`);
+    document.getElementById("notes-field").value = ProxyState.reservations.find(r => r.id === id).notes;
+  }
+
+  updateNotes(id)
+  {
+      window.event.preventDefault();
+      const foundReservation = ProxyState.reservations.find(r => r.id === id);
+      console.log(id)
+    if(foundReservation)
+    {
+        foundReservation.notes = document.getElementById("notes-field").value;
+        bootstrap.Modal.getOrCreateInstance(document.getElementById("notes-modal")).hide();
     }
   }
 }
