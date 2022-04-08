@@ -57,7 +57,7 @@ export class Reservation
             <div class="col">${this.confirmationNumber}</div>
             <div class="col">${this.address}</div>
             <div class="col">${this.startDate}</div>
-            <div class="col"><button class="btn btn-transparent text-dark" data-bs-toggle="modal" data-bs-target="#notes-modal" onclick="app.tripsController.drawNotes('${this.id}')"><i class="mdi mdi-note-outline"></i></button></div>
+            <div class="col"><button class="btn btn-transparent text-dark" data-bs-toggle="modal" data-bs-target="#notes-modal" onclick="app.tripsController.drawNotes('${this.id}')"><i class="mdi ${ this.notes.length == 0 ? "mdi-note-outline" : "mdi-note-edit-outline"}"></i></button></div>
             <div class="col">$${this.cost}</div>
         </div>
         `;

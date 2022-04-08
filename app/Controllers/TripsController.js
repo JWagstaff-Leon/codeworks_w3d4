@@ -162,6 +162,7 @@ export class TripsController {
     {
         foundReservation.notes = document.getElementById("notes-field").value;
         bootstrap.Modal.getOrCreateInstance(document.getElementById("notes-modal")).hide();
+        _drawReservations();
     }
   }
 }
