@@ -15,7 +15,16 @@ function _drawTrips() {
   </li>
   `;
 
-  document.getElementById('trips').innerHTML = template
+  document.getElementById('trips').innerHTML = template;
+
+    if(ProxyState.currentTripId)
+    {
+        document.getElementById("form").classList.remove("d-none");
+    }
+    else
+    {
+        document.getElementById("form").classList.add("d-none");
+    }
 }
 
 // the list of reservations within a trip tab
